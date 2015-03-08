@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Curated",
-    "description": "This is a curated api",
+    "description": "This is my API news curation API.",
     "termsOfService": "http://stack.network/terms-of-service.html",
     "version": "v1"
   },
@@ -17,14 +17,14 @@
   "paths": {
     "curated/": {
       "get": {
-        "summary": "retrieves all curateds",
-        "description": "pulls all curateds, with filter by keyword",
+        "summary": "retrieves all curated items",
+        "description": "pulls all curated items, with filter by keyword",
         "operationId": "getCurateds",
         "parameters": [
           {
             "name": "query",
             "in": "query",
-            "description": "a text query to search across curated",
+            "description": "a text query to search across curated items",
             "required": true,
             "type": "string"
           }
@@ -51,30 +51,288 @@
         "operationId": "addCurated",
         "parameters": [
           {
-            "name": "name",
+            "name": "title",
             "in": "query",
-            "description": "name of the curated",
+            "description": "title of the curated item",
             "required": true,
             "type": "string"
           },
           {
-            "name": "description",
+            "name": "link",
             "in": "query",
-            "description": "description of the curated",
+            "description": "url for the curated item",
             "required": true,
             "type": "string"
           },
           {
-            "name": "url",
+            "name": "item_date",
             "in": "query",
-            "description": "url for the curated",
+            "description": "date applied to the curated item",
             "required": true,
             "type": "string"
           },
           {
-            "name": "tags",
+            "name": "details",
             "in": "query",
-            "description": "tags for the curated",
+            "description": "raw details of the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "status of the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "public_comment",
+            "in": "query",
+            "description": "public comment on the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "original_date",
+            "in": "query",
+            "description": "original date of the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "author",
+            "in": "query",
+            "description": "author of the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "processed",
+            "in": "query",
+            "description": "has the curated item been processed",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "domain",
+            "in": "query",
+            "description": "domain of the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "screenshot_url",
+            "in": "query",
+            "description": "screenshot url for the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "resolved_url",
+            "in": "query",
+            "description": "resolved url for the item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "weekly_summary",
+            "in": "query",
+            "description": "is curated item included in weekly summary",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "weekly_roundup",
+            "in": "query",
+            "description": "is curated included in weekly roundup",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "curated response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/curated"
+              }
+            }
+          }
+        },
+        "tags": [
+          "curated",
+          "links"
+        ]
+      }
+    },
+    "curated/{curated_id}": {
+      "get": {
+        "summary": "Retrieve a curated item",
+        "description": "Returns the curated item usig its id",
+        "operationId": "getCurated",
+        "parameters": [
+          {
+            "name": "curated_id",
+            "in": "path",
+            "description": "id for the curated id",
+            "required": "true",
+            "type": "integer",
+            "format": "id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "curated response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/curated"
+              }
+            }
+          }
+        },
+        "tags": [
+          "curated",
+          "curatedging"
+        ]
+      },
+      "put": {
+        "summary": "Updated Curated Item",
+        "description": "Updated Curated Item",
+        "operationId": "updateCurated",
+        "parameters": [
+          {
+            "name": "curated_id",
+            "in": "path",
+            "description": "id of the curated item",
+            "required": true,
+            "type": "integer"
+          },        
+          {
+            "name": "title",
+            "in": "query",
+            "description": "title of the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "link",
+            "in": "query",
+            "description": "url for the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "item_date",
+            "in": "query",
+            "description": "date applied to the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "details",
+            "in": "query",
+            "description": "raw details of the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "status of the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "public_comment",
+            "in": "query",
+            "description": "public comment on the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "original_date",
+            "in": "query",
+            "description": "original date of the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "author",
+            "in": "query",
+            "description": "author of the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "processed",
+            "in": "query",
+            "description": "has the curated item been processed",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "domain",
+            "in": "query",
+            "description": "domain of the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "screenshot_url",
+            "in": "query",
+            "description": "screenshot url for the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "resolved_url",
+            "in": "query",
+            "description": "resolved url for the item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "weekly_summary",
+            "in": "query",
+            "description": "is curated item included in weekly summary",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "weekly_roundup",
+            "in": "query",
+            "description": "is curated included in weekly roundup",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "curated response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/curated"
+              }
+            }
+          }
+        },
+        "tags": [
+          "curated",
+          "curatedging"
+        ]
+      },
+      "delete": {
+        "summary": "delete a curated item",
+        "description": "deletes an curated",
+        "operationId": "deleteCurated",
+        "parameters": [
+          {
+            "name": "curated_id",
+            "in": "path",
+            "description": "id for the curated item",
             "required": true,
             "type": "string"
           }
@@ -96,7 +354,68 @@
         ]
       }
     },
-    "curated/{slug}": {
+    "curated/{curated_id}/tags/": {
+      "get": {
+        "summary": "Curated Tags",
+        "description": "Returns the tags for a curated item",
+        "operationId": "getCuratedTags",
+        "parameters": [
+          {
+            "name": "curated_id",
+            "in": "path",
+            "description": "id for curated item",
+            "required": "true",
+            "type": "integer",
+            "format": "id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "curated response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/curated"
+              }
+            }
+          }
+        },
+        "tags": [
+          "curated",
+          "curatedging"
+        ]
+      },
+      "post": {
+        "summary": "add tag",
+        "description": "add tag to curated item",
+        "operationId": "addCuratedTag",
+        "parameters": [
+          {
+            "name": "tag",
+            "in": "query",
+            "description": "tag name",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "curated response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/curated"
+              }
+            }
+          }
+        },
+        "tags": [
+          "curated",
+          "curatedging"
+        ]
+      }
+    },
+    "curated/{curated_id}/tags/{note_id}": {
       "get": {
         "summary": "Retrieve a curated using its slug",
         "description": "Returns the curated detail",
@@ -133,37 +452,100 @@
         "operationId": "updateCurated",
         "parameters": [
           {
-            "name": "slug",
-            "in": "path",
-            "description": "unique slug for the curated",
+            "name": "title",
+            "in": "query",
+            "description": "title of the curated item",
             "required": true,
             "type": "string"
           },
           {
-            "name": "name",
+            "name": "link",
             "in": "query",
-            "description": "name of the curated",
+            "description": "url for the curated item",
             "required": true,
             "type": "string"
           },
           {
-            "name": "description",
+            "name": "item_date",
             "in": "query",
-            "description": "description of the curated",
+            "description": "date applied to the curated item",
             "required": true,
             "type": "string"
           },
           {
-            "name": "url",
+            "name": "details",
             "in": "query",
-            "description": "url for the curated",
+            "description": "raw details of the curated item",
             "required": true,
             "type": "string"
           },
           {
-            "name": "tags",
+            "name": "status",
             "in": "query",
-            "description": "tags for the curated",
+            "description": "status of the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "public_comment",
+            "in": "query",
+            "description": "public comment on the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "original_date",
+            "in": "query",
+            "description": "original date of the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "author",
+            "in": "query",
+            "description": "author of the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "processed",
+            "in": "query",
+            "description": "has the curated item been processed",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "domain",
+            "in": "query",
+            "description": "domain of the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "screenshot_url",
+            "in": "query",
+            "description": "screenshot url for the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "resolved_url",
+            "in": "query",
+            "description": "resolved url for the item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "weekly_summary",
+            "in": "query",
+            "description": "is curated item included in weekly summary",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "weekly_roundup",
+            "in": "query",
+            "description": "is curated included in weekly roundup",
             "required": true,
             "type": "string"
           }
@@ -185,14 +567,711 @@
         ]
       },
       "delete": {
-        "summary": "delete curated",
+        "summary": "delete a curated item",
         "description": "deletes an curated",
         "operationId": "deleteCurated",
         "parameters": [
           {
+            "name": "curated_id",
+            "in": "path",
+            "description": "id for the curated item",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "curated response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/curated"
+              }
+            }
+          }
+        },
+        "tags": [
+          "curated",
+          "curatedging"
+        ]
+      }
+    },
+    "curated/{curated_id}/notes/": {
+      "get": {
+        "summary": "Retrieve a curated using its slug",
+        "description": "Returns the curated detail",
+        "operationId": "getCurated",
+        "parameters": [
+          {
             "name": "slug",
             "in": "path",
-            "description": "unique slug for the curated",
+            "description": "slug for the curated, notice this is in the path, not a query variable",
+            "required": "true",
+            "type": "integer",
+            "format": "id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "curated response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/curated"
+              }
+            }
+          }
+        },
+        "tags": [
+          "curated",
+          "curatedging"
+        ]
+      },
+      "post": {
+        "summary": "update curated",
+        "description": "update curated",
+        "operationId": "updateCurated",
+        "parameters": [
+          {
+            "name": "title",
+            "in": "query",
+            "description": "title of the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "link",
+            "in": "query",
+            "description": "url for the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "item_date",
+            "in": "query",
+            "description": "date applied to the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "details",
+            "in": "query",
+            "description": "raw details of the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "status of the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "public_comment",
+            "in": "query",
+            "description": "public comment on the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "original_date",
+            "in": "query",
+            "description": "original date of the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "author",
+            "in": "query",
+            "description": "author of the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "processed",
+            "in": "query",
+            "description": "has the curated item been processed",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "domain",
+            "in": "query",
+            "description": "domain of the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "screenshot_url",
+            "in": "query",
+            "description": "screenshot url for the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "resolved_url",
+            "in": "query",
+            "description": "resolved url for the item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "weekly_summary",
+            "in": "query",
+            "description": "is curated item included in weekly summary",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "weekly_roundup",
+            "in": "query",
+            "description": "is curated included in weekly roundup",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "curated response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/curated"
+              }
+            }
+          }
+        },
+        "tags": [
+          "curated",
+          "curatedging"
+        ]
+      }
+    },
+    "curated/{curated_id}/notes/{note_id}": {
+      "get": {
+        "summary": "Retrieve a curated using its slug",
+        "description": "Returns the curated detail",
+        "operationId": "getCurated",
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "description": "slug for the curated, notice this is in the path, not a query variable",
+            "required": "true",
+            "type": "integer",
+            "format": "id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "curated response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/curated"
+              }
+            }
+          }
+        },
+        "tags": [
+          "curated",
+          "curatedging"
+        ]
+      },
+      "put": {
+        "summary": "update curated",
+        "description": "update curated",
+        "operationId": "updateCurated",
+        "parameters": [
+          {
+            "name": "title",
+            "in": "query",
+            "description": "title of the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "link",
+            "in": "query",
+            "description": "url for the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "item_date",
+            "in": "query",
+            "description": "date applied to the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "details",
+            "in": "query",
+            "description": "raw details of the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "status of the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "public_comment",
+            "in": "query",
+            "description": "public comment on the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "original_date",
+            "in": "query",
+            "description": "original date of the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "author",
+            "in": "query",
+            "description": "author of the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "processed",
+            "in": "query",
+            "description": "has the curated item been processed",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "domain",
+            "in": "query",
+            "description": "domain of the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "screenshot_url",
+            "in": "query",
+            "description": "screenshot url for the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "resolved_url",
+            "in": "query",
+            "description": "resolved url for the item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "weekly_summary",
+            "in": "query",
+            "description": "is curated item included in weekly summary",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "weekly_roundup",
+            "in": "query",
+            "description": "is curated included in weekly roundup",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "curated response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/curated"
+              }
+            }
+          }
+        },
+        "tags": [
+          "curated",
+          "curatedging"
+        ]
+      },
+      "delete": {
+        "summary": "delete a curated item",
+        "description": "deletes an curated",
+        "operationId": "deleteCurated",
+        "parameters": [
+          {
+            "name": "curated_id",
+            "in": "path",
+            "description": "id for the curated item",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "curated response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/curated"
+              }
+            }
+          }
+        },
+        "tags": [
+          "curated",
+          "curatedging"
+        ]
+      }
+    },
+    "curated/byweek/": {
+      "get": {
+        "summary": "curated by week",
+        "description": "pulls all curated items by the week",
+        "operationId": "getCuratedByWeek",
+        "parameters": [
+          {
+            "name": "week",
+            "in": "query",
+            "description": "the week number",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "curated by weekresponse",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/curated"
+              }
+            }
+          }
+        },
+        "tags": [
+          "curated"
+        ]
+      }
+    },
+    "curated/byweek/review/": {
+      "get": {
+        "summary": "curated by week",
+        "description": "pulls all curated items by the week",
+        "operationId": "getCuratedByWeek",
+        "parameters": [
+          {
+            "name": "week",
+            "in": "query",
+            "description": "the week number",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "curated by weekresponse",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/curated"
+              }
+            }
+          }
+        },
+        "tags": [
+          "curated"
+        ]
+      }
+    },
+    "curated/byweek/published/": {
+      "get": {
+        "summary": "curated by week",
+        "description": "pulls all curated items by the week",
+        "operationId": "getCuratedByWeek",
+        "parameters": [
+          {
+            "name": "week",
+            "in": "query",
+            "description": "the week number",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "curated by weekresponse",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/curated"
+              }
+            }
+          }
+        },
+        "tags": [
+          "curated"
+        ]
+      }
+    },
+    "curated/byweek/archive/": {
+      "get": {
+        "summary": "curated by week",
+        "description": "pulls all curated items by the week",
+        "operationId": "getCuratedByWeek",
+        "parameters": [
+          {
+            "name": "week",
+            "in": "query",
+            "description": "the week number",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "curated by weekresponse",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/curated"
+              }
+            }
+          }
+        },
+        "tags": [
+          "curated"
+        ]
+      }
+    },
+    "curated/tags/": {
+      "get": {
+        "summary": "retrieves all curated items",
+        "description": "pulls all curated items, with filter by keyword",
+        "operationId": "getCurateds",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "a text query to search across curated items",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "curated response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/curated"
+              }
+            }
+          }
+        },
+        "tags": [
+          "curated",
+          "curatedging"
+        ]
+      }
+    },
+    "curated/tags/{tag}": {
+      "put": {
+        "summary": "update curated",
+        "description": "update curated",
+        "operationId": "updateCurated",
+        "parameters": [
+          {
+            "name": "title",
+            "in": "query",
+            "description": "title of the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "link",
+            "in": "query",
+            "description": "url for the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "item_date",
+            "in": "query",
+            "description": "date applied to the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "details",
+            "in": "query",
+            "description": "raw details of the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "status of the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "public_comment",
+            "in": "query",
+            "description": "public comment on the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "original_date",
+            "in": "query",
+            "description": "original date of the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "author",
+            "in": "query",
+            "description": "author of the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "processed",
+            "in": "query",
+            "description": "has the curated item been processed",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "domain",
+            "in": "query",
+            "description": "domain of the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "screenshot_url",
+            "in": "query",
+            "description": "screenshot url for the curated item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "resolved_url",
+            "in": "query",
+            "description": "resolved url for the item",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "weekly_summary",
+            "in": "query",
+            "description": "is curated item included in weekly summary",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "weekly_roundup",
+            "in": "query",
+            "description": "is curated included in weekly roundup",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "curated response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/curated"
+              }
+            }
+          }
+        },
+        "tags": [
+          "curated",
+          "curatedging"
+        ]
+      },
+      "delete": {
+        "summary": "delete a curated item",
+        "description": "deletes an curated",
+        "operationId": "deleteCurated",
+        "parameters": [
+          {
+            "name": "curated_id",
+            "in": "path",
+            "description": "id for the curated item",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "curated response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/curated"
+              }
+            }
+          }
+        },
+        "tags": [
+          "curated",
+          "curatedging"
+        ]
+      }
+    },
+    "curated/tags/byweek/": {
+      "get": {
+        "summary": "retrieves all curated items",
+        "description": "pulls all curated items, with filter by keyword",
+        "operationId": "getCurateds",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "a text query to search across curated items",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "curated response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/curated"
+              }
+            }
+          }
+        },
+        "tags": [
+          "curated",
+          "curatedging"
+        ]
+      }
+    },
+    "curated/tags/byweek/{tag}/curated/": {
+      "get": {
+        "summary": "retrieves all curated items",
+        "description": "pulls all curated items, with filter by keyword",
+        "operationId": "getCurateds",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "a text query to search across curated items",
             "required": true,
             "type": "string"
           }
@@ -218,25 +1297,75 @@
   "definitions": {
     "curated": {
       "properties": {
-        "name": {
-          "description": "name of the curated",
+        "curated_id": {
+          "description": "id for the curated item",
           "type": "string",
           "format": "label"
         },
-        "description": {
-          "description": "description of the curated",
+        "title": {
+          "description": "title of the curated item",
           "type": "string"
         },
-        "url": {
-          "description": "url for the curated",
+        "link": {
+          "description": "url for the curated item",
           "type": "string"
         },
-        "tags": {
-          "description": "tags for the curated",
+        "item_date": {
+          "description": "date applied to the curated item",
           "type": "string"
         },
-        "slug": {
-          "description": "slug for the curated",
+        "details": {
+          "description": "raw details for the curated item",
+          "type": "string",
+          "format": "id"
+        },
+        "status": {
+          "description": "status of the curated item",
+          "type": "string",
+          "format": "id"
+        },
+        "public_comment": {
+          "description": "any public comment for the curated item",
+          "type": "string",
+          "format": "id"
+        },
+        "original_date": {
+          "description": "orignal date for the curated item",
+          "type": "date",
+          "format": "datetime"
+        },
+        "author": {
+          "description": "author for the curated item",
+          "type": "string",
+          "format": "id"
+        },
+        "processed": {
+          "description": "has the curated item been processed",
+          "type": "string",
+          "format": "id"
+        },
+        "domain": {
+          "description": "root domain for the curated item",
+          "type": "string",
+          "format": "id"
+        },
+        "screenshot_url": {
+          "description": "screenshot url for the curated item",
+          "type": "string",
+          "format": "id"
+        },
+        "resolved_url": {
+          "description": "resolved url for the curated item",
+          "type": "string",
+          "format": "id"
+        },
+        "weekly_summary": {
+          "description": "include in weekly summary",
+          "type": "string",
+          "format": "id"
+        },
+        "weekly_roundup": {
+          "description": "include in weekly roundup",
           "type": "string",
           "format": "id"
         }
