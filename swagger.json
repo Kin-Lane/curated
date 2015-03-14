@@ -42,7 +42,7 @@
         },
         "tags": [
           "curated",
-          "curatedging"
+          "news"
         ]
       },
       "post": {
@@ -194,7 +194,7 @@
         },
         "tags": [
           "curated",
-          "curatedging"
+          "news"
         ]
       },
       "put": {
@@ -321,7 +321,7 @@
         },
         "tags": [
           "curated",
-          "curatedging"
+          "news"
         ]
       },
       "delete": {
@@ -350,7 +350,7 @@
         },
         "tags": [
           "curated",
-          "curatedging"
+          "news"
         ]
       }
     },
@@ -371,18 +371,18 @@
         ],
         "responses": {
           "200": {
-            "description": "curated response",
+            "description": "curated tags response",
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/curated"
+                "$ref": "#/definitions/tag"
               }
             }
           }
         },
         "tags": [
           "curated",
-          "curatedging"
+          "news"
         ]
       },
       "post": {
@@ -404,14 +404,14 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/curated"
+                "$ref": "#/definitions/tag"
               }
             }
           }
         },
         "tags": [
           "curated",
-          "curatedging"
+          "news"
         ]
       }
     },
@@ -442,7 +442,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/curated"
+                "$ref": "#/definitions/tag"
               }
             }
           }
@@ -474,14 +474,14 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/curated"
+                "$ref": "#/definitions/note"
               }
             }
           }
         },
         "tags": [
           "curated",
-          "curatedging"
+          "news"
         ]
       },
       "post": {
@@ -518,7 +518,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/curated"
+                "$ref": "#/definitions/note"
               }
             }
           }
@@ -556,14 +556,14 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/curated"
+                "$ref": "#/definitions/note"
               }
             }
           }
         },
         "tags": [
           "curated",
-          "curatedging"
+          "news"
         ]
       }
     },
@@ -714,7 +714,7 @@
         },
         "tags": [
           "curated",
-          "curatedging"
+          "news"
         ]
       }
     },
@@ -814,7 +814,7 @@
         },
         "tags": [
           "curated",
-          "curatedging"
+          "news"
         ]
       }
     }
@@ -893,6 +893,40 @@
           "description": "include in weekly roundup",
           "type": "string",
           "format": "id"
+        }
+      }
+    },
+    "tag": {
+      "properties": {
+        "tag_id": {
+          "description": "id for the tag",
+          "type": "integer",
+          "format": "id"
+        },
+        "tag": {
+          "description": "text tag",
+          "type": "string"
+        },
+        "curated_count": {
+          "description": "number of items curated with tag",
+          "type": "integer"
+        }
+      }
+    },
+    "note": {
+      "properties": {
+        "note_id": {
+          "description": "id for the curated item",
+          "type": "integer",
+          "format": "id"
+        },
+        "type": {
+          "description": "type of note",
+          "type": "string"
+        },
+        "note": {
+          "description": "text of note",
+          "type": "string"
         }
       }
     },
