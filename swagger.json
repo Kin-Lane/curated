@@ -15,7 +15,7 @@
     "curatedlication/json"
   ],
   "paths": {
-    "curated/": {
+    "/curated/": {
       "get": {
         "summary": "retrieves all curated items",
         "description": "pulls all curated items, with filter by keyword",
@@ -25,7 +25,7 @@
             "name": "query",
             "in": "query",
             "description": "a text query to search across curated items",
-            "required": "true",
+            "required": true,
             "type": "string"
           }
         ],
@@ -53,98 +53,98 @@
             "name": "title",
             "in": "query",
             "description": "title of the curated item",
-            "required": "true",
+            "required": true,
             "type": "string"
           },
           {
             "name": "link",
             "in": "query",
             "description": "url for the curated item",
-            "required": "true",
+            "required": true,
             "type": "string"
           },
           {
             "name": "item_date",
             "in": "query",
             "description": "date applied to the curated item",
-            "required": "true",
+            "required": true,
             "type": "string"
           },
           {
             "name": "details",
             "in": "query",
             "description": "raw details of the curated item",
-            "required": "true",
+            "required": true,
             "type": "string"
           },
           {
             "name": "status",
             "in": "query",
             "description": "status of the curated item",
-            "required": "true",
+            "required": true,
             "type": "string"
           },
           {
             "name": "public_comment",
             "in": "query",
             "description": "public comment on the curated item",
-            "required": "true",
+            "required": true,
             "type": "string"
           },
           {
             "name": "original_date",
             "in": "query",
             "description": "original date of the curated item",
-            "required": "true",
+            "required": true,
             "type": "string"
           },
           {
             "name": "author",
             "in": "query",
             "description": "author of the curated item",
-            "required": "true",
+            "required": true,
             "type": "string"
           },
           {
             "name": "processed",
             "in": "query",
             "description": "has the curated item been processed",
-            "required": "true",
+            "required": true,
             "type": "string"
           },
           {
             "name": "domain",
             "in": "query",
             "description": "domain of the curated item",
-            "required": "true",
+            "required": true,
             "type": "string"
           },
           {
             "name": "screenshot_url",
             "in": "query",
             "description": "screenshot url for the curated item",
-            "required": "true",
+            "required": true,
             "type": "string"
           },
           {
             "name": "resolved_url",
             "in": "query",
             "description": "resolved url for the item",
-            "required": "true",
+            "required": true,
             "type": "string"
           },
           {
             "name": "weekly_summary",
             "in": "query",
             "description": "is curated item included in weekly summary",
-            "required": "true",
+            "required": true,
             "type": "string"
           },
           {
             "name": "weekly_roundup",
             "in": "query",
             "description": "is curated included in weekly roundup",
-            "required": "true",
+            "required": true,
             "type": "string"
           }
         ],
@@ -164,7 +164,7 @@
         ]
       }
     },
-    "curated/{curated_id}": {
+    "/curated/{curated_id}": {
       "get": {
         "summary": "retrieve a curated item",
         "description": "Returns the curated item usig its id",
@@ -174,7 +174,7 @@
             "name": "curated_id",
             "in": "path",
             "description": "id for the curated id",
-            "required": "true",
+            "required": true,
             "type": "integer",
             "format": "id"
           }
@@ -203,105 +203,105 @@
             "name": "curated_id",
             "in": "path",
             "description": "id of the curated item",
-            "required": "true",
+            "required": true,
             "type": "integer"
           },
           {
             "name": "title",
             "in": "query",
             "description": "title of the curated item",
-            "required": "true",
+            "required": true,
             "type": "string"
           },
           {
             "name": "link",
             "in": "query",
             "description": "url for the curated item",
-            "required": "true",
+            "required": true,
             "type": "string"
           },
           {
             "name": "item_date",
             "in": "query",
             "description": "date applied to the curated item",
-            "required": "true",
+            "required": true,
             "type": "string"
           },
           {
             "name": "details",
             "in": "query",
             "description": "raw details of the curated item",
-            "required": "true",
+            "required": true,
             "type": "string"
           },
           {
             "name": "status",
             "in": "query",
             "description": "status of the curated item",
-            "required": "true",
+            "required": true,
             "type": "string"
           },
           {
             "name": "public_comment",
             "in": "query",
             "description": "public comment on the curated item",
-            "required": "true",
+            "required": true,
             "type": "string"
           },
           {
             "name": "original_date",
             "in": "query",
             "description": "original date of the curated item",
-            "required": "true",
+            "required": true,
             "type": "string"
           },
           {
             "name": "author",
             "in": "query",
             "description": "author of the curated item",
-            "required": "true",
+            "required": true,
             "type": "string"
           },
           {
             "name": "processed",
             "in": "query",
             "description": "has the curated item been processed",
-            "required": "true",
+            "required": true,
             "type": "string"
           },
           {
             "name": "domain",
             "in": "query",
             "description": "domain of the curated item",
-            "required": "true",
+            "required": true,
             "type": "string"
           },
           {
             "name": "screenshot_url",
             "in": "query",
             "description": "screenshot url for the curated item",
-            "required": "true",
+            "required": true,
             "type": "string"
           },
           {
             "name": "resolved_url",
             "in": "query",
             "description": "resolved url for the item",
-            "required": "true",
+            "required": true,
             "type": "string"
           },
           {
             "name": "weekly_summary",
             "in": "query",
             "description": "is curated item included in weekly summary",
-            "required": "true",
+            "required": true,
             "type": "string"
           },
           {
             "name": "weekly_roundup",
             "in": "query",
             "description": "is curated included in weekly roundup",
-            "required": "true",
+            "required": true,
             "type": "string"
           }
         ],
@@ -329,7 +329,7 @@
             "name": "curated_id",
             "in": "path",
             "description": "id for the curated item",
-            "required": "true",
+            "required": true,
             "type": "string"
           }
         ],
@@ -349,7 +349,7 @@
         ]
       }
     },
-    "curated/{curated_id}/tags/": {
+    "/curated/{curated_id}/tags/": {
       "get": {
         "summary": "curated tags",
         "description": "Returns the tags for a curated item",
@@ -359,7 +359,7 @@
             "name": "curated_id",
             "in": "path",
             "description": "id for curated item",
-            "required": "true",
+            "required": true,
             "type": "integer",
             "format": "id"
           }
@@ -385,10 +385,18 @@
         "operationId": "addCuratedTag",
         "parameters": [
           {
+            "name": "curated_id",
+            "in": "path",
+            "description": "id for curated item",
+            "required": true,
+            "type": "integer",
+            "format": "id"
+          },          
+          {
             "name": "tag",
             "in": "query",
             "description": "tag name",
-            "required": "true",
+            "required": true,
             "type": "string"
           }
         ],
@@ -408,7 +416,7 @@
         ]
       }
     },
-    "curated/{curated_id}/tags/{tag}": {
+    "/curated/{curated_id}/tags/{tag}": {
       "delete": {
         "summary": "delete a curated item",
         "description": "deletes an curated",
@@ -418,14 +426,14 @@
             "name": "curated_id",
             "in": "path",
             "description": "id for the curated item",
-            "required": "true",
+            "required": true,
             "type": "string"
           },
           {
             "name": "tag",
             "in": "path",
             "description": "tag to upate on the curated item",
-            "required": "true",
+            "required": true,
             "type": "string"
           }
         ],
@@ -445,7 +453,7 @@
         ]
       }
     },
-    "curated/{curated_id}/notes/": {
+    "/curated/{curated_id}/notes/": {
       "get": {
         "summary": "retrieve a curated items notes",
         "description": "Returns the notes for a curated item",
@@ -455,7 +463,7 @@
             "name": "curated_id",
             "in": "path",
             "description": "id for the curated item",
-            "required": "true",
+            "required": true,
             "type": "integer",
             "format": "id"
           }
@@ -484,7 +492,7 @@
             "name": "curated_id",
             "in": "path",
             "description": "id for the curated item",
-            "required": "true",
+            "required": true,
             "type": "integer",
             "format": "id"
           },
@@ -492,14 +500,14 @@
             "name": "type",
             "in": "query",
             "description": "type of the note",
-            "required": "true",
+            "required": true,
             "type": "string"
           },
           {
             "name": "note",
             "in": "query",
             "description": "the full text of note",
-            "required": "true",
+            "required": true,
             "type": "string"
           }
         ],
@@ -519,7 +527,7 @@
         ]
       }
     },
-    "curated/{curated_id}/notes/{note_id}": {
+    "/curated/{curated_id}/notes/{note_id}": {
       "delete": {
         "summary": "delete a curated note",
         "description": "Deletes a note for a curated item",
@@ -529,14 +537,14 @@
             "name": "curated_id",
             "in": "path",
             "description": "id for the curated item",
-            "required": "true",
+            "required": true,
             "type": "string"
           },
           {
             "name": "note_id",
             "in": "path",
             "description": "id for the note",
-            "required": "true",
+            "required": true,
             "type": "string"
           }
         ],
@@ -556,7 +564,7 @@
         ]
       }
     },
-    "curated/byweek/": {
+    "/curated/byweek/": {
       "get": {
         "summary": "curated items by week",
         "description": "pulls all curated items by the week",
@@ -566,7 +574,7 @@
             "name": "week",
             "in": "query",
             "description": "the week number",
-            "required": "false",
+            "required": false,
             "type": "integer"
           }
         ],
@@ -586,7 +594,7 @@
         ]
       }
     },
-    "curated/byweek/review/": {
+    "/curated/byweek/review/": {
       "get": {
         "summary": "curated item by week for review",
         "description": "Pulls all curated items by the week marked for review",
@@ -596,7 +604,7 @@
             "name": "week",
             "in": "query",
             "description": "the week number",
-            "required": "false",
+            "required": false,
             "type": "integer"
           }
         ],
@@ -616,7 +624,7 @@
         ]
       }
     },
-    "curated/byweek/published/": {
+    "/curated/byweek/published/": {
       "get": {
         "summary": "curated items by week published",
         "description": "Pulls all curated items by the week marked for published",
@@ -626,7 +634,7 @@
             "name": "week",
             "in": "query",
             "description": "the week number",
-            "required": "false",
+            "required": false,
             "type": "integer"
           }
         ],
@@ -646,7 +654,7 @@
         ]
       }
     },
-    "curated/byweek/archive/": {
+    "/curated/byweek/archive/": {
       "get": {
         "summary": "curated items by week archived",
         "description": "Pulls all curated items by the week marked for archive",
@@ -656,7 +664,7 @@
             "name": "week",
             "in": "query",
             "description": "the week number",
-            "required": "false",
+            "required": false,
             "type": "integer"
           }
         ],
@@ -676,7 +684,7 @@
         ]
       }
     },
-    "curated/tags/": {
+    "/curated/tags/": {
       "get": {
         "summary": "retrieves all curated items",
         "description": "pulls all curated items, with filter by keyword",
@@ -686,7 +694,7 @@
             "name": "query",
             "in": "query",
             "description": "a text query to search across curated items",
-            "required": "true",
+            "required": true,
             "type": "string"
           }
         ],
@@ -706,7 +714,7 @@
         ]
       }
     },
-    "curated/tags/{tag}": {
+    "/curated/tags/{tag}": {
       "delete": {
         "summary": "delete tag",
         "description": "Deletes an entire tag from all curated items",
@@ -716,7 +724,7 @@
             "name": "tag",
             "in": "path",
             "description": "Tag to be removed",
-            "required": "true",
+            "required": true,
             "type": "string"
           }
         ],
@@ -736,7 +744,7 @@
         ]
       }
     },
-    "curated/tags/byweek/": {
+    "/curated/tags/byweek/": {
       "get": {
         "summary": "retrieve curated tags by week",
         "description": "Retrieves a list of tags used across curated items by the week.",
@@ -746,7 +754,7 @@
             "name": "week",
             "in": "query",
             "description": "the week to retrieve tags by",
-            "required": "true",
+            "required": true,
             "type": "string"
           }
         ],
@@ -766,7 +774,7 @@
         ]
       }
     },
-    "curated/tags/byweek/{tag}/curated/": {
+    "/curated/tags/byweek/{tag}/curated/": {
       "get": {
         "summary": "retrieve curated items by tag and week",
         "description": "Pulls a list of curated items by week, and tag.",
@@ -776,14 +784,14 @@
             "name": "tag",
             "in": "path",
             "description": "the tag to filter by",
-            "required": "true",
+            "required": true,
             "type": "string"
           },
           {
             "name": "week",
             "in": "query",
             "description": "the week to filter by, defaults to this week",
-            "required": "true",
+            "required": true,
             "type": "string"
           }
         ],
@@ -841,7 +849,7 @@
         },
         "original_date": {
           "description": "orignal date for the curated item",
-          "type": "date",
+          "type": "string",
           "format": "datetime"
         },
         "author": {
@@ -911,21 +919,6 @@
         },
         "note": {
           "description": "text of note",
-          "type": "string"
-        }
-      }
-    },
-    "errorModel": {
-      "required": [
-        "code",
-        "message"
-      ],
-      "properties": {
-        "code": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "message": {
           "type": "string"
         }
       }
