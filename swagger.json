@@ -3,7 +3,7 @@
   "info": {
     "title": "Curated",
     "description": "This is my API news curation API.",
-    "termsOfService": "http://stack.network/terms-of-service.html",
+    "termsOfService": "http://kinlane.com/terms-of-service.html",
     "version": "v1"
   },
   "host": "curated.api.kinlane.com",
