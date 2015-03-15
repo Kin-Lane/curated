@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Curated",
-    "description": "This is my API news curation API.",
+    "description": "This is my API for curated my API news from across the Internet. These are stories I've flagged as important after reading blog feeds, Twitter, Reddit, and numerous other sources.",
     "termsOfService": "http://kinlane.com/terms-of-service.html",
     "version": "v1"
   },
@@ -41,8 +41,7 @@
           }
         },
         "tags": [
-          "curated",
-          "news"
+          "Curated"
         ]
       },
       "post": {
@@ -161,8 +160,7 @@
           }
         },
         "tags": [
-          "curated",
-          "links"
+          "Curated"
         ]
       }
     },
@@ -193,8 +191,7 @@
           }
         },
         "tags": [
-          "curated",
-          "news"
+          "Curated"
         ]
       },
       "put": {
@@ -320,8 +317,7 @@
           }
         },
         "tags": [
-          "curated",
-          "news"
+          "Curated"
         ]
       },
       "delete": {
@@ -349,8 +345,7 @@
           }
         },
         "tags": [
-          "curated",
-          "news"
+          "Curated"
         ]
       }
     },
@@ -381,8 +376,7 @@
           }
         },
         "tags": [
-          "curated",
-          "news"
+          "Tags"
         ]
       },
       "post": {
@@ -410,8 +404,7 @@
           }
         },
         "tags": [
-          "curated",
-          "news"
+          "Tags"
         ]
       }
     },
@@ -448,8 +441,7 @@
           }
         },
         "tags": [
-          "curated",
-          "tags"
+          "Tags"
         ]
       }
     },
@@ -480,8 +472,7 @@
           }
         },
         "tags": [
-          "curated",
-          "news"
+          "Notes"
         ]
       },
       "post": {
@@ -524,8 +515,7 @@
           }
         },
         "tags": [
-          "curated",
-          "notes"
+          "Notes"
         ]
       }
     },
@@ -562,8 +552,7 @@
           }
         },
         "tags": [
-          "curated",
-          "news"
+          "Notes"
         ]
       }
     },
@@ -593,7 +582,7 @@
           }
         },
         "tags": [
-          "curated"
+          "Curated By Week"
         ]
       }
     },
@@ -623,7 +612,7 @@
           }
         },
         "tags": [
-          "curated"
+          "Curated By Week"
         ]
       }
     },
@@ -683,7 +672,7 @@
           }
         },
         "tags": [
-          "curated"
+          "Curated By Week"
         ]
       }
     },
@@ -713,8 +702,7 @@
           }
         },
         "tags": [
-          "curated",
-          "news"
+          "Tags"
         ]
       }
     },
@@ -744,8 +732,7 @@
           }
         },
         "tags": [
-          "curated",
-          "tags"
+          "Tags"
         ]
       }
     },
@@ -775,8 +762,7 @@
           }
         },
         "tags": [
-          "curated",
-          "tags"
+          "Tags"
         ]
       }
     },
@@ -813,8 +799,7 @@
           }
         },
         "tags": [
-          "curated",
-          "news"
+          "Tags"
         ]
       }
     }
