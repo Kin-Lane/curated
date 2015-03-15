@@ -166,7 +166,7 @@
     },
     "curated/{curated_id}": {
       "get": {
-        "summary": "Retrieve a curated item",
+        "summary": "retrieve a curated item",
         "description": "Returns the curated item usig its id",
         "operationId": "getCurated",
         "parameters": [
@@ -195,7 +195,7 @@
         ]
       },
       "put": {
-        "summary": "Updated Curated Item",
+        "summary": "updatea a curated item",
         "description": "Updated Curated Item",
         "operationId": "updateCurated",
         "parameters": [
@@ -351,7 +351,7 @@
     },
     "curated/{curated_id}/tags/": {
       "get": {
-        "summary": "Curated Tags",
+        "summary": "curated tags",
         "description": "Returns the tags for a curated item",
         "operationId": "getCuratedTags",
         "parameters": [
@@ -447,7 +447,7 @@
     },
     "curated/{curated_id}/notes/": {
       "get": {
-        "summary": "Retrieve curated notes",
+        "summary": "retrieve a curated items notes",
         "description": "Returns the notes for a curated item",
         "operationId": "getCuratedNotes",
         "parameters": [
@@ -476,7 +476,7 @@
         ]
       },
       "post": {
-        "summary": "Add Curated Note",
+        "summary": "add a curated note",
         "description": "Add a note for the curated item",
         "operationId": "addCuratedNote",
         "parameters": [
@@ -521,7 +521,7 @@
     },
     "curated/{curated_id}/notes/{note_id}": {
       "delete": {
-        "summary": "Delete Curated Note",
+        "summary": "delete a curated note",
         "description": "Deletes a note for a curated item",
         "operationId": "deleteCuratedNot",
         "parameters": [
@@ -558,7 +558,7 @@
     },
     "curated/byweek/": {
       "get": {
-        "summary": "curated by week",
+        "summary": "curated items by week",
         "description": "pulls all curated items by the week",
         "operationId": "getCuratedByWeek",
         "parameters": [
@@ -588,7 +588,7 @@
     },
     "curated/byweek/review/": {
       "get": {
-        "summary": "Curated By Week Review",
+        "summary": "curated item by week for review",
         "description": "Pulls all curated items by the week marked for review",
         "operationId": "getCuratedByWeekReview",
         "parameters": [
@@ -618,8 +618,8 @@
     },
     "curated/byweek/published/": {
       "get": {
-        "summary": "Curated By Week Review",
-        "description": "Pulls all curated items by the week marked for review",
+        "summary": "curated items by week published",
+        "description": "Pulls all curated items by the week marked for published",
         "operationId": "getCuratedByWeekPublished",
         "parameters": [
           {
@@ -648,7 +648,7 @@
     },
     "curated/byweek/archive/": {
       "get": {
-        "summary": "Curated By Week Archive",
+        "summary": "curated items by week archived",
         "description": "Pulls all curated items by the week marked for archive",
         "operationId": "getCuratedByWeekPublished",
         "parameters": [
@@ -708,7 +708,7 @@
     },
     "curated/tags/{tag}": {
       "delete": {
-        "summary": "Delete Tag",
+        "summary": "delete tag",
         "description": "Deletes an entire tag from all curated items",
         "operationId": "deleteCuratedTag",
         "parameters": [
@@ -738,7 +738,7 @@
     },
     "curated/tags/byweek/": {
       "get": {
-        "summary": "Retrieve Curated Tags By Week",
+        "summary": "retrieve curated tags by week",
         "description": "Retrieves a list of tags used across curated items by the week.",
         "operationId": "getCurateds",
         "parameters": [
@@ -768,7 +768,7 @@
     },
     "curated/tags/byweek/{tag}/curated/": {
       "get": {
-        "summary": "Retrieve Curated Items By Tag and Week",
+        "summary": "retrieve curated items by tag and week",
         "description": "Pulls a list of curated items by week, and tag.",
         "operationId": "getCuratedTagCurated",
         "parameters": [
