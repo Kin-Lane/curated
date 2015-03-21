@@ -22,6 +22,20 @@
         "operationId": "getCurateds",
         "parameters": [
           {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the API",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the API",
+            "required": true,
+            "type": "string"
+          },         
+          {
             "name": "query",
             "in": "query",
             "description": "a text query to search across curated items",
@@ -49,6 +63,20 @@
         "description": "add a new curated",
         "operationId": "addCurated",
         "parameters": [
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the API",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the API",
+            "required": true,
+            "type": "string"
+          },         
           {
             "name": "title",
             "in": "query",
@@ -177,7 +205,21 @@
             "required": true,
             "type": "integer",
             "format": "id"
-          }
+          },
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the API",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the API",
+            "required": true,
+            "type": "string"
+          }          
         ],
         "responses": {
           "200": {
@@ -206,6 +248,20 @@
             "required": true,
             "type": "integer"
           },
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the API",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the API",
+            "required": true,
+            "type": "string"
+          },           
           {
             "name": "title",
             "in": "query",
@@ -331,7 +387,21 @@
             "description": "id for the curated item",
             "required": true,
             "type": "string"
-          }
+          },
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the API",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the API",
+            "required": true,
+            "type": "string"
+          }          
         ],
         "responses": {
           "200": {
@@ -362,7 +432,21 @@
             "required": true,
             "type": "integer",
             "format": "id"
-          }
+          },
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the API",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the API",
+            "required": true,
+            "type": "string"
+          }          
         ],
         "responses": {
           "200": {
@@ -391,7 +475,21 @@
             "required": true,
             "type": "integer",
             "format": "id"
-          },          
+          },
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the API",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the API",
+            "required": true,
+            "type": "string"
+          },                     
           {
             "name": "tag",
             "in": "query",
@@ -430,6 +528,20 @@
             "type": "string"
           },
           {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the API",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the API",
+            "required": true,
+            "type": "string"
+          },           
+          {
             "name": "tag",
             "in": "path",
             "description": "tag to upate on the curated item",
@@ -466,7 +578,21 @@
             "required": true,
             "type": "integer",
             "format": "id"
-          }
+          },
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the API",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the API",
+            "required": true,
+            "type": "string"
+          }          
         ],
         "responses": {
           "200": {
@@ -496,6 +622,20 @@
             "type": "integer",
             "format": "id"
           },
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the API",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the API",
+            "required": true,
+            "type": "string"
+          },           
           {
             "name": "type",
             "in": "query",
@@ -541,6 +681,20 @@
             "type": "string"
           },
           {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the API",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the API",
+            "required": true,
+            "type": "string"
+          },           
+          {
             "name": "note_id",
             "in": "path",
             "description": "id for the note",
@@ -570,6 +724,20 @@
         "description": "pulls all curated items by the week",
         "operationId": "getCuratedByWeek",
         "parameters": [
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the API",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the API",
+            "required": true,
+            "type": "string"
+          },         
           {
             "name": "week",
             "in": "query",
@@ -601,6 +769,20 @@
         "operationId": "getCuratedByWeekReview",
         "parameters": [
           {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the API",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the API",
+            "required": true,
+            "type": "string"
+          },         
+          {
             "name": "week",
             "in": "query",
             "description": "the week number",
@@ -630,6 +812,20 @@
         "description": "Pulls all curated items by the week marked for published",
         "operationId": "getCuratedByWeekPublished",
         "parameters": [
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the API",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the API",
+            "required": true,
+            "type": "string"
+          },         
           {
             "name": "week",
             "in": "query",
@@ -661,6 +857,20 @@
         "operationId": "getCuratedByWeekPublished",
         "parameters": [
           {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the API",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the API",
+            "required": true,
+            "type": "string"
+          },         
+          {
             "name": "week",
             "in": "query",
             "description": "the week number",
@@ -690,6 +900,20 @@
         "description": "pulls all curated items, with filter by keyword",
         "operationId": "getCurateds",
         "parameters": [
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the API",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the API",
+            "required": true,
+            "type": "string"
+          },         
           {
             "name": "query",
             "in": "query",
@@ -721,6 +945,20 @@
         "operationId": "deleteCuratedTag",
         "parameters": [
           {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the API",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the API",
+            "required": true,
+            "type": "string"
+          },         
+          {
             "name": "tag",
             "in": "path",
             "description": "Tag to be removed",
@@ -751,6 +989,20 @@
         "operationId": "getCurateds",
         "parameters": [
           {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the API",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the API",
+            "required": true,
+            "type": "string"
+          },         
+          {
             "name": "week",
             "in": "query",
             "description": "the week to retrieve tags by",
@@ -780,6 +1032,20 @@
         "description": "Pulls a list of curated items by week, and tag.",
         "operationId": "getCuratedTagCurated",
         "parameters": [
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the API",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the API",
+            "required": true,
+            "type": "string"
+          },         
           {
             "name": "tag",
             "in": "path",
