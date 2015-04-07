@@ -1098,11 +1098,6 @@
           "description": "date applied to the curated item",
           "type": "string"
         },
-        "details": {
-          "description": "raw details for the curated item",
-          "type": "string",
-          "format": "id"
-        },
         "status": {
           "description": "status of the curated item",
           "type": "string",
