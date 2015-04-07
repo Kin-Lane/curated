@@ -18,8 +18,8 @@
     "/curated/": {
       "get": {
         "summary": "retrieves all curated items",
-        "description": "pulls all curated items, with filter by keyword",
-        "operationId": "getCurateds",
+        "description": "retrieves all curated items",
+        "operationId": "getCurated",
         "parameters": [
           {
             "name": "appid",
@@ -60,7 +60,7 @@
       },
       "post": {
         "summary": "add curated",
-        "description": "add a new curated",
+        "description": "add curated",
         "operationId": "addCurated",
         "parameters": [
           {
@@ -195,7 +195,7 @@
     "/curated/{curated_id}": {
       "get": {
         "summary": "retrieve a curated item",
-        "description": "Returns the curated item usig its id",
+        "description": "retrieve a curated item",
         "operationId": "getCurated",
         "parameters": [
           {
@@ -238,7 +238,7 @@
       },
       "put": {
         "summary": "updatea a curated item",
-        "description": "Updated Curated Item",
+        "description": "updatea a curated item",
         "operationId": "updateCurated",
         "parameters": [
           {
@@ -378,7 +378,7 @@
       },
       "delete": {
         "summary": "delete a curated item",
-        "description": "deletes an curated",
+        "description": "delete a curated item",
         "operationId": "deleteCurated",
         "parameters": [
           {
@@ -421,8 +421,8 @@
     },
     "/curated/{curated_id}/tags/": {
       "get": {
-        "summary": "curated tags",
-        "description": "Returns the tags for a curated item",
+        "summary": "get curated tags",
+        "description": "get curated tags",
         "operationId": "getCuratedTags",
         "parameters": [
           {
@@ -464,8 +464,8 @@
         ]
       },
       "post": {
-        "summary": "add tag",
-        "description": "add tag to curated item",
+        "summary": "add curated tag",
+        "description": "add curated tag",
         "operationId": "addCuratedTag",
         "parameters": [
           {
@@ -517,7 +517,7 @@
     "/curated/{curated_id}/tags/{tag}": {
       "delete": {
         "summary": "delete a curated item",
-        "description": "deletes an curated",
+        "description": "delete a curated item",
         "operationId": "deleteCurated",
         "parameters": [
           {
@@ -567,8 +567,8 @@
     },
     "/curated/{curated_id}/notes/": {
       "get": {
-        "summary": "retrieve a curated items notes",
-        "description": "Returns the notes for a curated item",
+        "summary": "get curated items notes",
+        "description": "get curated items notes",
         "operationId": "getCuratedNotes",
         "parameters": [
           {
@@ -611,7 +611,7 @@
       },
       "post": {
         "summary": "add a curated note",
-        "description": "Add a note for the curated item",
+        "description": "add a curated note",
         "operationId": "addCuratedNote",
         "parameters": [
           {
@@ -670,8 +670,8 @@
     "/curated/{curated_id}/notes/{note_id}": {
       "delete": {
         "summary": "delete a curated note",
-        "description": "Deletes a note for a curated item",
-        "operationId": "deleteCuratedNot",
+        "description": "delete a curated note",
+        "operationId": "deleteCuratedNote",
         "parameters": [
           {
             "name": "curated_id",
@@ -721,7 +721,7 @@
     "/curated/byweek/": {
       "get": {
         "summary": "curated items by week",
-        "description": "pulls all curated items by the week",
+        "description": "curated items by week",
         "operationId": "getCuratedByWeek",
         "parameters": [
           {
@@ -765,7 +765,7 @@
     "/curated/byweek/review/": {
       "get": {
         "summary": "curated item by week for review",
-        "description": "Pulls all curated items by the week marked for review",
+        "description": "curated item by week for review",
         "operationId": "getCuratedByWeekReview",
         "parameters": [
           {
@@ -809,7 +809,7 @@
     "/curated/byweek/published/": {
       "get": {
         "summary": "curated items by week published",
-        "description": "Pulls all curated items by the week marked for published",
+        "description": "curated items by week published",
         "operationId": "getCuratedByWeekPublished",
         "parameters": [
           {
@@ -853,7 +853,7 @@
     "/curated/byweek/archive/": {
       "get": {
         "summary": "curated items by week archived",
-        "description": "Pulls all curated items by the week marked for archive",
+        "description": "curated items by week archived",
         "operationId": "getCuratedByWeekPublished",
         "parameters": [
           {
@@ -896,9 +896,9 @@
     },
     "/curated/tags/": {
       "get": {
-        "summary": "retrieves all curated items",
-        "description": "pulls all curated items, with filter by keyword",
-        "operationId": "getCurateds",
+        "summary": "retrieves all tags for curated",
+        "description": "retrieves all tags for curated",
+        "operationId": "getCuratedTags",
         "parameters": [
           {
             "name": "appid",
@@ -940,8 +940,8 @@
     },
     "/curated/tags/{tag}": {
       "delete": {
-        "summary": "delete tag",
-        "description": "Deletes an entire tag from all curated items",
+        "summary": "delete curated tag",
+        "description": "delete curated tag",
         "operationId": "deleteCuratedTag",
         "parameters": [
           {
@@ -984,9 +984,9 @@
     },
     "/curated/tags/byweek/": {
       "get": {
-        "summary": "retrieve curated tags by week",
-        "description": "Retrieves a list of tags used across curated items by the week.",
-        "operationId": "getCurateds",
+        "summary": "curated tags by week",
+        "description": "curated tags by week",
+        "operationId": "getCuratedTagsByWeek",
         "parameters": [
           {
             "name": "appid",
@@ -1028,8 +1028,8 @@
     },
     "/curated/tags/byweek/{tag}/curated/": {
       "get": {
-        "summary": "retrieve curated items by tag and week",
-        "description": "Pulls a list of curated items by week, and tag.",
+        "summary": "curated by tag and week",
+        "description": "curated by tag and week",
         "operationId": "getCuratedTagCurated",
         "parameters": [
           {
