@@ -9,7 +9,7 @@
   "host": "curated.api.kinlane.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "produces": [
     "curatedlication/json"
