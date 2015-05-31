@@ -266,98 +266,105 @@
             "name": "title",
             "in": "query",
             "description": "title of the curated item",
-            "required": true,
+            "required": false,
             "type": "string"
           },
           {
             "name": "link",
             "in": "query",
             "description": "url for the curated item",
-            "required": true,
+            "required": false,
             "type": "string"
           },
           {
             "name": "item_date",
             "in": "query",
             "description": "date applied to the curated item",
-            "required": true,
+            "required": false,
             "type": "string"
           },
           {
             "name": "details",
             "in": "query",
             "description": "raw details of the curated item",
-            "required": true,
+            "required": false,
             "type": "string"
           },
           {
             "name": "status",
             "in": "query",
             "description": "status of the curated item",
-            "required": true,
+            "required": false,
             "type": "string"
           },
           {
             "name": "public_comment",
             "in": "query",
             "description": "public comment on the curated item",
-            "required": true,
+            "required": false,
             "type": "string"
           },
           {
             "name": "original_date",
             "in": "query",
             "description": "original date of the curated item",
-            "required": true,
+            "required": false,
             "type": "string"
           },
           {
             "name": "author",
             "in": "query",
             "description": "author of the curated item",
-            "required": true,
+            "required": false,
             "type": "string"
           },
           {
             "name": "processed",
             "in": "query",
             "description": "has the curated item been processed",
-            "required": true,
+            "required": false,
             "type": "string"
           },
           {
             "name": "domain",
             "in": "query",
             "description": "domain of the curated item",
-            "required": true,
+            "required": false,
             "type": "string"
           },
           {
             "name": "screenshot_url",
             "in": "query",
             "description": "screenshot url for the curated item",
-            "required": true,
+            "required": false,
             "type": "string"
           },
           {
             "name": "resolved_url",
             "in": "query",
             "description": "resolved url for the item",
-            "required": true,
+            "required": false,
             "type": "string"
           },
           {
             "name": "weekly_summary",
             "in": "query",
             "description": "is curated item included in weekly summary",
-            "required": true,
+            "required": false,
             "type": "string"
           },
           {
             "name": "weekly_roundup",
             "in": "query",
             "description": "is curated included in weekly roundup",
-            "required": true,
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "github_build",
+            "in": "query",
+            "description": "the build entry for github",
+            "required": false,
             "type": "string"
           }
         ],
