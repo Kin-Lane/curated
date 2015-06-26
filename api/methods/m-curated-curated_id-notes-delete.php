@@ -1,6 +1,4 @@
-<?php																				
-			
-	
+<?php																							
 $route = '/curated/:curated_id/notes/:note_id';
 $app->delete($route, function ($Curated_ID,$Note_ID)  use ($app){
 
@@ -23,6 +21,5 @@ $app->delete($route, function ($Curated_ID,$Note_ID)  use ($app){
 	$app->response()->header("Content-Type", "application/json");
 	echo stripslashes(format_json(json_encode($ReturnObject)));
 	
-	});		
-		
+	});			
 ?>
