@@ -34,7 +34,7 @@
             "description": "your appkey for accessing the API",
             "required": true,
             "type": "string"
-          },         
+          },
           {
             "name": "query",
             "in": "query",
@@ -56,6 +56,14 @@
         },
         "tags": [
           "Curated"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       },
       "post": {
@@ -76,7 +84,7 @@
             "description": "your appkey for accessing the API",
             "required": true,
             "type": "string"
-          },         
+          },
           {
             "name": "title",
             "in": "query",
@@ -189,6 +197,14 @@
         },
         "tags": [
           "Curated"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       }
     },
@@ -219,7 +235,7 @@
             "description": "your appkey for accessing the API",
             "required": true,
             "type": "string"
-          }          
+          }
         ],
         "responses": {
           "200": {
@@ -234,6 +250,14 @@
         },
         "tags": [
           "Curated"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       },
       "put": {
@@ -261,7 +285,7 @@
             "description": "your appkey for accessing the API",
             "required": true,
             "type": "string"
-          },           
+          },
           {
             "name": "title",
             "in": "query",
@@ -381,6 +405,14 @@
         },
         "tags": [
           "Curated"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       },
       "delete": {
@@ -408,7 +440,7 @@
             "description": "your appkey for accessing the API",
             "required": true,
             "type": "string"
-          }          
+          }
         ],
         "responses": {
           "200": {
@@ -423,6 +455,14 @@
         },
         "tags": [
           "Curated"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       }
     },
@@ -453,7 +493,7 @@
             "description": "your appkey for accessing the API",
             "required": true,
             "type": "string"
-          }          
+          }
         ],
         "responses": {
           "200": {
@@ -468,6 +508,14 @@
         },
         "tags": [
           "Tags"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       },
       "post": {
@@ -496,7 +544,7 @@
             "description": "your appkey for accessing the API",
             "required": true,
             "type": "string"
-          },                     
+          },
           {
             "name": "tag",
             "in": "query",
@@ -518,6 +566,14 @@
         },
         "tags": [
           "Tags"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       }
     },
@@ -547,7 +603,7 @@
             "description": "your appkey for accessing the API",
             "required": true,
             "type": "string"
-          },           
+          },
           {
             "name": "tag",
             "in": "path",
@@ -569,6 +625,14 @@
         },
         "tags": [
           "Tags"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       }
     },
@@ -599,7 +663,7 @@
             "description": "your appkey for accessing the API",
             "required": true,
             "type": "string"
-          }          
+          }
         ],
         "responses": {
           "200": {
@@ -614,6 +678,14 @@
         },
         "tags": [
           "Notes"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       },
       "post": {
@@ -642,7 +714,7 @@
             "description": "your appkey for accessing the API",
             "required": true,
             "type": "string"
-          },           
+          },
           {
             "name": "type",
             "in": "query",
@@ -671,6 +743,14 @@
         },
         "tags": [
           "Notes"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       }
     },
@@ -700,7 +780,7 @@
             "description": "your appkey for accessing the API",
             "required": true,
             "type": "string"
-          },           
+          },
           {
             "name": "note_id",
             "in": "path",
@@ -722,6 +802,14 @@
         },
         "tags": [
           "Notes"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       }
     },
@@ -744,7 +832,7 @@
             "description": "your appkey for accessing the API",
             "required": true,
             "type": "string"
-          },         
+          },
           {
             "name": "week",
             "in": "query",
@@ -766,6 +854,14 @@
         },
         "tags": [
           "Curated By Week"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       }
     },
@@ -788,7 +884,7 @@
             "description": "your appkey for accessing the API",
             "required": true,
             "type": "string"
-          },         
+          },
           {
             "name": "week",
             "in": "query",
@@ -810,6 +906,14 @@
         },
         "tags": [
           "Curated By Week"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       }
     },
@@ -832,7 +936,7 @@
             "description": "your appkey for accessing the API",
             "required": true,
             "type": "string"
-          },         
+          },
           {
             "name": "week",
             "in": "query",
@@ -854,6 +958,14 @@
         },
         "tags": [
           "Curated By Week"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       }
     },
@@ -876,7 +988,7 @@
             "description": "your appkey for accessing the API",
             "required": true,
             "type": "string"
-          },         
+          },
           {
             "name": "week",
             "in": "query",
@@ -898,6 +1010,14 @@
         },
         "tags": [
           "Curated By Week"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       }
     },
@@ -920,7 +1040,7 @@
             "description": "your appkey for accessing the API",
             "required": true,
             "type": "string"
-          },         
+          },
           {
             "name": "query",
             "in": "query",
@@ -942,6 +1062,14 @@
         },
         "tags": [
           "Tags"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       }
     },
@@ -964,7 +1092,7 @@
             "description": "your appkey for accessing the API",
             "required": true,
             "type": "string"
-          },         
+          },
           {
             "name": "tag",
             "in": "path",
@@ -986,6 +1114,14 @@
         },
         "tags": [
           "Tags"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       }
     },
@@ -1008,7 +1144,7 @@
             "description": "your appkey for accessing the API",
             "required": true,
             "type": "string"
-          },         
+          },
           {
             "name": "week",
             "in": "query",
@@ -1030,6 +1166,14 @@
         },
         "tags": [
           "Tags"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       }
     },
@@ -1052,7 +1196,7 @@
             "description": "your appkey for accessing the API",
             "required": true,
             "type": "string"
-          },         
+          },
           {
             "name": "tag",
             "in": "path",
@@ -1081,8 +1225,28 @@
         },
         "tags": [
           "Tags"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
         ]
       }
+    }
+  },
+  "securityDefinitions": {
+    "appid": {
+      "type": "apiKey",
+      "name": "appid",
+      "in": "query"
+    },
+    "appkey": {
+      "type": "apiKey",
+      "name": "appkey",
+      "in": "query"
     }
   },
   "definitions": {
