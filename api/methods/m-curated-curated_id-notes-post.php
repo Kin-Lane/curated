@@ -1,7 +1,9 @@
 <?php
 $route = '/curated/:curated_id/notes/';
-$app->post($route, function ($Curated_ID)  use ($app){
+$app->post($route, function ($curated_id)  use ($app){
 
+   $host = $_SERVER['HTTP_HOST'];
+   $curated_id = prepareIdIn($curated_id,$host);
 
 	$ReturnObject = array();
 		
@@ -13,12 +15,13 @@ $app->post($route, function ($Curated_ID)  use ($app){
 		$Type = trim(mysql_real_escape_string($param['Type']));
 		$Note = trim(mysql_real_escape_string($param['Note']));
 
-		$query = "INSERT INTO curated_notes(Curated_ID,Type,Note) VALUES(" . $Curated_ID . "," . $Type . "," . $Note . "); ";
+		$query = "INSERT INTO curated_notes(Curated_ID,Type,Note) VALUES(" . $curated_id . "," . $Type . "," . $Note . "); ";
 		mysql_query($query) or die('Query failed: ' . mysql_error());					
-		$Note_ID = mysql_insert_id();		
+		$note_id = mysql_insert_id();		
 			
 		$F = array();
-		$F['note_id'] = $Note_ID;
+		$F['curated_id'] = $curated_id;
+		$F['note_id'] = $note_id;
 		$F['type'] = $Type;
 		$F['note'] = $Note;
 		

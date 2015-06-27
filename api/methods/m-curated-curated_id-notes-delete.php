@@ -1,18 +1,25 @@
 <?php																							
 $route = '/curated/:curated_id/notes/:note_id';
-$app->delete($route, function ($Curated_ID,$Note_ID)  use ($app){
+$app->delete($route, function ($curated_id,$note_id)  use ($app){
 
+   $host = $_SERVER['HTTP_HOST'];
+   $curated_id = prepareIdIn($curated_id,$host);
+	$note_id = prepareIdIn($note_id,$host);
 
 	$ReturnObject = array();
 		
  	$request = $app->request(); 
  	$param = $request->params();	
 
-	$DeleteQuery = "DELETE FROM curated_note WHERE ID = " . trim($Note_ID) . " AND Curated_ID = " . trim($Curated_ID);
+	$DeleteQuery = "DELETE FROM curated_note WHERE ID = " . trim($note_id) . " AND Curated_ID = " . trim($curated_id);
 	$DeleteResult = mysql_query($DeleteQuery) or die('Query failed: ' . mysql_error());
 
+	$curated_id = prepareIdOut($curated_id,$host);
+	$note_id = prepareIdOut($note_id,$host);
+
 	$F = array();
-	$F['note_id'] = $Note_ID;
+	$F['curated_id'] = $curated_id;	
+	$F['note_id'] = $note_id;
 	$F['type'] = '';
 	$F['note'] = '';
 	

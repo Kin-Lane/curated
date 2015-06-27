@@ -1,7 +1,9 @@
 <?php
 $route = '/curated/:curated_id/tags/:tag';
-$app->delete($route, function ($Curated_ID,$Tag)  use ($app){
+$app->delete($route, function ($curated_id,$Tag)  use ($app){
 
+   $host = $_SERVER['HTTP_HOST'];
+   $curated_id = prepareIdIn($curated_id,$host);
 
 	$ReturnObject = array();
 		
@@ -17,14 +19,18 @@ $app->delete($route, function ($Curated_ID,$Tag)  use ($app){
 		if($CheckTagResults && mysql_num_rows($CheckTagResults))
 			{
 			$Tag = mysql_fetch_assoc($CheckTagResults);		
-			$Tag_ID = $Tag['Tag_ID'];
+			$tag_id = $Tag['Tag_ID'];
 
-			$DeleteQuery = "DELETE FROM curated_tag_pivot where Tag_ID = " . trim($Tag_ID) . " AND Curated_ID = " . trim($Curated_ID);
+			$DeleteQuery = "DELETE FROM curated_tag_pivot where Tag_ID = " . $tag_id . " AND Curated_ID = " . trim($curated_id);
 			$DeleteResult = mysql_query($DeleteQuery) or die('Query failed: ' . mysql_error());
 			}
 
+		$tag_id = prepareIdOut($tag_id,$host);
+		$curated_id = prepareIdOut($curated_id,$host);
+
 		$F = array();
-		$F['tag_id'] = $Tag_ID;
+		$F['tag_id'] = $tag_id;
+		$F['curated_id'] = $curated_id;
 		$F['tag'] = $tag;
 		$F['curated_count'] = 0;
 		

@@ -1,24 +1,30 @@
 <?php
 $route = '/curated/:curated_id/notes/';
-$app->get($route, function ($curated_ID)  use ($app){
+$app->get($route, function ($curated_id)  use ($app){
 
+   $host = $_SERVER['HTTP_HOST'];
+   $curated_id = prepareIdIn($curated_id,$host);
 
 	$ReturnObject = array();
 		
 	$Query = "SELECT ID,Curate_ID,Type,Note  from curated_notes cn";
-	$Query .= " WHERE cn.Curated_ID = " . $curated_ID;
+	$Query .= " WHERE cn.Curated_ID = " . $curated_id;
 
 	$DatabaseResult = mysql_query($Query) or die('Query failed: ' . mysql_error());
 	  
 	while ($Database = mysql_fetch_assoc($DatabaseResult))
 		{
 
-		$Note_ID = $Database['ID'];
+		$note_id = $Database['ID'];
 		$Type = $Database['Type'];
 		$Note = $Database['Note'];
 
+		$curated_id = prepareIdOut($curated_id,$host);
+		$note_id = prepareIdOut($note_id,$host);
+
 		$F = array();
-		$F['note_id'] = $Note_ID;
+		$F['curated_id'] = $curated_id;
+		$F['note_id'] = $note_id;
 		$F['type'] = $Type;
 		$F['note'] = $Note;
 		

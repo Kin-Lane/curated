@@ -37,6 +37,12 @@ $app->post($route, function () use ($app){
 		mysql_query($Query) or die('Query failed: ' . mysql_error());			
 		}
 
+   $host = $_SERVER['HTTP_HOST'];
+   $curated_id = prepareIdOut($curated_id,$host);
+
+   $host = $_SERVER['HTTP_HOST'];
+   $curated_id = prepareIdOut($curated_id,$host);
+
 	$F = array();
 	$F['name'] = $name;
 	$F['url'] = $url;

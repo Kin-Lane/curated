@@ -20,7 +20,7 @@ $app->get($route, function ()  use ($app){
 	while ($Database = mysql_fetch_assoc($DatabaseResult))
 		{
 
-		$Curated_ID = $Database['Curated_ID'];
+		$curated_id = $Database['Curated_ID'];
 		$title = $Database['Title'];
 		$title = str_replace(chr(34),"",$title);
 		$title = str_replace(chr(39),"",$title);
@@ -53,9 +53,17 @@ $app->get($route, function ()  use ($app){
 		$Github_Build = $Database['Github_Build'];
 						
 		// manipulation zone
+
+		$TagQuery = "SELECT t.tag_id, t.tag from tags t";
+		$TagQuery .= " INNER JOIN curated_tag_pivot ctp ON t.tag_id = ctp.tag_id";
+		$TagQuery .= " WHERE ctp.Curated_ID = " . $curated_id;
+		$TagQuery .= " ORDER BY t.tag DESC";
+
+		$host = $_SERVER['HTTP_HOST'];
+		$curated_id = prepareIdOut($curated_id,$host);
 		
 		$F = array();
-		$F['curated_id'] = $Curated_ID;
+		$F['curated_id'] = $curated_id;
 		$F['title'] = $title;
 		$F['link'] = $Link;
 		$F['item_date'] = $Item_Date;
@@ -73,13 +81,8 @@ $app->get($route, function ()  use ($app){
 		$F['github_build'] = $Github_Build;
 		
 		$F['tags'] = array();
-		
-		$TagQuery = "SELECT t.tag_id, t.tag from tags t";
-		$TagQuery .= " INNER JOIN curated_tag_pivot ctp ON t.tag_id = ctp.tag_id";
-		$TagQuery .= " WHERE ctp.Curated_ID = " . $Curated_ID;
-		$TagQuery .= " ORDER BY t.tag DESC";
-		$TagResult = mysql_query($TagQuery) or die('Query failed: ' . mysql_error());
-		  
+
+		$TagResult = mysql_query($TagQuery) or die('Query failed: ' . mysql_error());		  
 		while ($Tag = mysql_fetch_assoc($TagResult))
 			{
 			$thistag = $Tag['tag'];

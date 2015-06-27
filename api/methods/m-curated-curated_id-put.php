@@ -1,7 +1,10 @@
 <?php
 $route = '/curated/:curated_id/';	
 $app->put($route, function ($curated_id) use ($app){
-		
+
+   $host = $_SERVER['HTTP_HOST'];
+   $curated_id = prepareIdIn($curated_id,$host);
+
 	$ReturnObject = array();
 	
  	$request = $app->request(); 
@@ -45,6 +48,7 @@ $app->put($route, function ($curated_id) use ($app){
 		mysql_query($query) or die('Query failed: ' . mysql_error());	
 		}
 
+	$curated_id = prepareIdOut($curated_id,$host);
 	$ReturnObject['curated_id'] = $curated_id;
 		
 	$app->response()->header("Content-Type", "application/json");

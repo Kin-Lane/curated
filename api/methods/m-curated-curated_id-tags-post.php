@@ -1,7 +1,9 @@
 <?php
 $route = '/curated/:curated_id/tags/';
-$app->post($route, function ($Curated_ID)  use ($app){
+$app->post($route, function ($curated_id)  use ($app){
 
+   $host = $_SERVER['HTTP_HOST'];
+   $curated_id = prepareIdIn($curated_id,$host);
 
 	$ReturnObject = array();
 		
@@ -24,10 +26,10 @@ $app->post($route, function ($Curated_ID)  use ($app){
 
 			$query = "INSERT INTO tags(Tag) VALUES('" . trim($_POST['Tag']) . "'); ";
 			mysql_query($query) or die('Query failed: ' . mysql_error());	
-			$Tag_ID = mysql_insert_id();			
+			$tag_id = mysql_insert_id();			
 			}
 
-		$CheckTagPivotQuery = "SELECT * FROM curated_tag_pivot where Tag_ID = " . trim($Tag_ID) . " AND Curated_ID = " . trim($Curated_ID);
+		$CheckTagPivotQuery = "SELECT * FROM curated_tag_pivot where Tag_ID = " . trim($tag_id) . " AND Curated_ID = " . trim($curated_id);
 		$CheckTagPivotResult = mysql_query($CheckTagPivotQuery) or die('Query failed: ' . mysql_error());
 		
 		if($CheckTagPivotResult && mysql_num_rows($CheckTagPivotResult))
@@ -36,12 +38,16 @@ $app->post($route, function ($Curated_ID)  use ($app){
 			}
 		else
 			{
-			$query = "INSERT INTO curated_tag_pivot(Tag_ID,Curated_ID) VALUES(" . $Tag_ID . "," . $Curated_ID . "); ";
+			$query = "INSERT INTO curated_tag_pivot(Tag_ID,Curated_ID) VALUES(" . $tag_id . "," . $curated_id . "); ";
 			mysql_query($query) or die('Query failed: ' . mysql_error());					
 			}
 
+		$curated_id = prepareIdOut($curated_id,$host);
+		$tag_id = prepareIdOut($tag_id,$host);
+
 		$F = array();
-		$F['tag_id'] = $Tag_ID;
+		$F['tag_id'] = $curated_id;
+		$F['tag_id'] = $tag_id;
 		$F['tag'] = $tag;
 		$F['curated_count'] = 0;
 		
