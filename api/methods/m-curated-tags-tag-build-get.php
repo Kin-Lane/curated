@@ -3,9 +3,9 @@ $route = '/curated/tags/:tag/build/';
 $app->get($route, function ($tag)  use ($app){
 
 	$ReturnObject = array();
-	
- 	$request = $app->request(); 
- 	$params = $request->params();		
+
+ 	$request = $app->request();
+ 	$params = $request->params();
 
 	$Query = "SELECT DISTINCT c.* from tags t";
 	$Query .= " JOIN curated_tag_pivot ctp ON t.Tag_ID = ctp.Tag_ID";
@@ -13,7 +13,7 @@ $app->get($route, function ($tag)  use ($app){
 	$Query .= " WHERE (Github_Build NOT LIKE '%" . $tag . "%' OR Github_Build IS NULL) AND Tag = '" . $tag . "' ORDER BY Item_date ASC LIMIT 5 ";
 	//echo $Query;
 	$DatabaseResult = mysql_query($Query) or die('Query failed: ' . mysql_error());
-	  
+
 	while ($Database = mysql_fetch_assoc($DatabaseResult))
 		{
 
@@ -37,10 +37,10 @@ $app->get($route, function ($tag)  use ($app){
 		$Details = str_replace(chr(32).chr(32),chr(32),$Details);
 		$Details = str_replace(chr(32).chr(32),chr(32),$Details);
 		$Status = $Database['Status'];
-		$Public_Comment = $Database['Public_Comment'];	
+		$Public_Comment = $Database['Public_Comment'];
 		$Public_Comment = str_replace(chr(34),"",$Public_Comment);
-		$Public_Comment = str_replace(chr(39),"",$Public_Comment);		
-		$Author = $Database['Author'];		
+		$Public_Comment = str_replace(chr(39),"",$Public_Comment);
+		$Author = $Database['Author'];
 		$Domain = $Database['Domain'];
 		$Screenshot_URL = $Database['Screenshot_URL'];
 		$Resolved_URL = $Database['Resolved_URL'];
@@ -48,8 +48,13 @@ $app->get($route, function ($tag)  use ($app){
 		$Weekly_Roundup = $Database['Weekly_Roundup'];
 		$Processed = $Database['Processed'];
 		$Github_Build = $Database['Github_Build'];
-						
+
 		// manipulation zone
+
+		// manipulation zone
+		if($Github_Build==''){ $Github_Build = $tag; } else { $Github_Build .= $tag; }
+		$UpdateQuery = "UPDATE curated SET Github_Build = '" . $Github_Build . "' WHERE Curated_ID = " . $curated_id;
+		$UpdateResult = mysql_query($UpdateQuery) or die('Query failed: ' . mysql_error());		
 
 		$TagQuery = "SELECT t.tag_id, t.tag from tags t";
 		$TagQuery .= " INNER JOIN curated_tag_pivot ctp ON t.tag_id = ctp.tag_id";
@@ -58,7 +63,7 @@ $app->get($route, function ($tag)  use ($app){
 
 		$host = $_SERVER['HTTP_HOST'];
 		$curated_id = prepareIdOut($curated_id,$host);
-		
+
 		$F = array();
 		$F['curated_id'] = $curated_id;
 		$F['title'] = $title;
@@ -76,26 +81,26 @@ $app->get($route, function ($tag)  use ($app){
 		$F['weekly_roundup'] = $Weekly_Roundup;
 		$F['processed'] = $Processed;
 		$F['github_build'] = $Github_Build;
-		
+
 		$F['tags'] = array();
 
-		$TagResult = mysql_query($TagQuery) or die('Query failed: ' . mysql_error());		  
+		$TagResult = mysql_query($TagQuery) or die('Query failed: ' . mysql_error());
 		while ($Tag = mysql_fetch_assoc($TagResult))
 			{
 			$thistag = $Tag['tag'];
-			
+
 			$T = array();
 			$T = $thistag;
 			array_push($F['tags'], $T);
-			//echo $thistag . "<br />";	
+			//echo $thistag . "<br />";
 			if($thistag=='Archive')
 				{
-				$archive = 1;	
-				}					
-			}		
-		
+				$archive = 1;
+				}
+			}
+
 		array_push($ReturnObject, $F);
-			
+
 		}
 
 		$app->response()->header("Content-Type", "application/json");
