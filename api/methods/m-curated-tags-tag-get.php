@@ -11,7 +11,7 @@ $app->get($route, function ($tag)  use ($app){
 	$Query = "SELECT DISTINCT c.* from tags t";
 	$Query .= " JOIN curated_tag_pivot ctp ON t.Tag_ID = ctp.Tag_ID";
 	$Query .= " JOIN curated c ON ctp.Curated_ID = c.Curated_ID";
-	$Query .= " WHERE (Github_Build NOT LIKE '%" . $tag . "%' ORDER BY Item_date ASC LIMIT 5 ";
+	$Query .= " WHERE Tag = '" . $tag . "' ORDER BY Item_date ASC LIMIT 5 ";
 	//echo $Query;
 	$DatabaseResult = mysql_query($Query) or die('Query failed: ' . mysql_error());
 
