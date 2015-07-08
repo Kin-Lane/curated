@@ -1,4 +1,5 @@
 <?php
+echo "IN!";
 $route = '/curated/tags/:tag/';
 $app->get($route, function ($tag)  use ($app){
 
@@ -54,7 +55,7 @@ $app->get($route, function ($tag)  use ($app){
 		// manipulation zone
 		if($Github_Build==''){ $Github_Build = $tag; } else { $Github_Build .= $tag; }
 		$UpdateQuery = "UPDATE curated SET Github_Build = '" . $Github_Build . "' WHERE Curated_ID = " . $curated_id;
-		$UpdateResult = mysql_query($UpdateQuery) or die('Query failed: ' . mysql_error());		
+		$UpdateResult = mysql_query($UpdateQuery) or die('Query failed: ' . mysql_error());
 
 		$TagQuery = "SELECT t.tag_id, t.tag from tags t";
 		$TagQuery .= " INNER JOIN curated_tag_pivot ctp ON t.tag_id = ctp.tag_id";

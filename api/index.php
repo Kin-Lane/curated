@@ -38,7 +38,7 @@ if ($appid!='' && $appkey!='')
 
 	$Plan = $response->getPlan();
 	$Plan = str_replace(" (custom)","",$Plan);
-	echo $Plan . "<br />";
+//	echo $Plan . "<br />";
 
 	$usageReports = $response->getUsageReports();
 	$usageReport  = $usageReports[0];
@@ -51,9 +51,10 @@ if ($appid!='' && $appkey!='')
 		//echo "Success:";
 		//echo "  Plan: " .          $response->getPlan();
 		//echo "  Usage reports: " . var_export($usageReports, true);
-		echo $Plan . "<br />";
+		//echo $Plan . "<br />";
 		if($Plan=="Internal" || $Plan=="Platform")
 			{
+			echo "PLATFORM!";
 			include "methods/platform.php";
 			}
 		elseif($Plan=="Personal")
