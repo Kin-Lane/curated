@@ -38,7 +38,7 @@ if ($appid!='' && $appkey!='')
 
 	$Plan = $response->getPlan();
 	$Plan = str_replace(" (custom)","",$Plan);
-	//echo $Plan . "<br />";
+	echo $Plan . "<br />";
 
 	$usageReports = $response->getUsageReports();
 	$usageReport  = $usageReports[0];
