@@ -8,10 +8,15 @@ $app->get($route, function ($tag)  use ($app){
  	$request = $app->request();
  	$params = $request->params();
 
+	if(isset($params['page'])){ $page = trim(mysql_real_escape_string($params['page'])); } else { $page = 0;}
+	if(isset($params['count'])){ $count = trim(mysql_real_escape_string($params['count'])); } else { $count = 50;}
+
 	$Query = "SELECT DISTINCT c.* from tags t";
 	$Query .= " JOIN curated_tag_pivot ctp ON t.Tag_ID = ctp.Tag_ID";
 	$Query .= " JOIN curated c ON ctp.Curated_ID = c.Curated_ID";
-	$Query .= " WHERE Tag = '" . $tag . "' ORDER BY Item_date ASC LIMIT 5 ";
+	$Query .= " WHERE Tag = '" . $tag . "'";
+	$Query .= " ORDER BY Item_date DESC LIMIT " . $page . "," . $count;
+
 	//echo $Query;
 	$DatabaseResult = mysql_query($Query) or die('Query failed: ' . mysql_error());
 
