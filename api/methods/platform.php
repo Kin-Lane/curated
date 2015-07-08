@@ -11,6 +11,7 @@ require_once('m-curated-byweek-archive-get.php');
 require_once('m-curated-tags-get.php');
 require_once('m-curated-tags-tag-delete.php');
 
+require_once('m-curated-tags-tag-get.php');
 require_once('m-curated-tags-tag-build-get.php');
 require_once('m-curated-tags-byweek-get.php');
 
