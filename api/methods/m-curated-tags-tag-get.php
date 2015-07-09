@@ -14,7 +14,7 @@ $app->get($route, function ($tag)  use ($app){
 	$Query = "SELECT DISTINCT c.* from tags t";
 	$Query .= " JOIN curated_tag_pivot ctp ON t.Tag_ID = ctp.Tag_ID";
 	$Query .= " JOIN curated c ON ctp.Curated_ID = c.Curated_ID";
-	$Query .= " WHERE Tag = '" . $tag . "'";
+	$Query .= " WHERE Tag = '" . $tag . "' AND c.Status = 'Published'";
 	$Query .= " ORDER BY Item_date DESC LIMIT " . $page . "," . $count;
 
 	//echo $Query;
