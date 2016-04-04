@@ -1,5 +1,9 @@
 - name: Curated API
-  description: ""
+  description: As I look through the thousands of tweets, blog posts, and other items
+    I read from across the API space, I curate them as part of my regular research.
+    I put them into each research bucket, and make them availble via each reserch
+    project. You can access via this API, and use in real-time as I curate and manage
+    each week.
   image: https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-abundance.png
   x-open-ranking: "0"
   tags:
@@ -10,7 +14,11 @@
   specificationVersion: "0.14"
   apis:
   - name: Kin Lane Curated
-    description: This is my master org.
+    description: <p>As I look through the thousands of tweets, blog posts, and other
+      items I read from across the API space, I curate them as part of my regular
+      research. I put them into each research bucket, and make them availble via each
+      reserch project. You can access via this API, and use in real-time as I curate
+      and manage each week.</p>
     image: http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/company/logos/kin.png
     humanURL: https://kin-lane.github.io/curated/
     baseURL: https://kin-lane.github.io/curated/
