@@ -1,29 +1,21 @@
-- name: Blog API
-  description: I use this API to manage all of my blogs. Since I use Jekyll and Github
-    to manage all my project sites, storing content, JSON, YAML, and server and client
-    side code in each project, I use an API to distribute the blog updates to each
-    project endpoint. You can access all my storytelling across all of the blogs that
-    I maintain here in this API.
-  image: https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-blog-icon.png
+- name: Curated API
+  description: ""
+  image: https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-abundance.png
   x-open-ranking: "0"
   tags:
-  - Kin Lane Blog API
+  - Kin Lane Curated APi
   created: "2016-04-04"
   modified: "2016-04-04"
   url: ""
   specificationVersion: "0.14"
   apis:
-  - name: Kin Lane Blog API
-    description: <p><span>I use this API to manage all of my blogs. Since I use Jekyll
-      and Github to manage all my project sites, storing content, JSON, YAML, and
-      server and client side code in each project, I use an API to distribute the
-      blog updates to each project endpoint. You can access all my storytelling across
-      all of the blogs that I maintain here in this API.</span></p>
+  - name: Kin Lane Curated
+    description: This is my master org.
     image: http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/company/logos/kin.png
-    humanURL: https://kin-lane.github.io/blog/index.html
-    baseURL: https://kin-lane.github.io/blog/index.html
+    humanURL: https://kin-lane.github.io/curated/
+    baseURL: https://kin-lane.github.io/curated/
     tags:
-    - Kin Lane Blog API
+    - Kin Lane Curated APi
     properties:
     - type: x-openapi-spec
       url: api-commons/openapi-spec.json
@@ -74,7 +66,7 @@
     url: api-commons/api-plan.json
   include:
   - name: Parent
-    url: http://kin-lane.github.io/blog//apis.yaml
+    url: https://kin-lane.github.io/curated//apis.yaml
   maintainers:
   - FN: Kin Lane
     x-twitter: apievangelist
