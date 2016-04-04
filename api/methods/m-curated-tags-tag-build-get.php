@@ -6,11 +6,21 @@ $app->get($route, function ($tag)  use ($app){
 
  	$request = $app->request();
  	$params = $request->params();
+	
+	if(isset($_REQUEST['override'])){ $override = $params['override']; } else { $override = 0; }
 
 	$Query = "SELECT DISTINCT c.* from tags t";
 	$Query .= " JOIN curated_tag_pivot ctp ON t.Tag_ID = ctp.Tag_ID";
 	$Query .= " JOIN curated c ON ctp.Curated_ID = c.Curated_ID";
-	$Query .= " WHERE (Github_Build NOT LIKE '%" . $tag . "%' OR Github_Build IS NULL) AND Tag = '" . $tag . "' ORDER BY Item_date ASC LIMIT 5 ";
+	if($override==1)
+		{
+		$Query .= " WHERE Tag = '" . $tag . "'";
+		}
+	else 
+		{
+		$Query .= " WHERE (Github_Build NOT LIKE '%" . $tag . "%' OR Github_Build IS NULL) AND Tag = '" . $tag . "'";
+		}	
+	$Query .= " ORDER BY Curated_ID DESC";
 	//echo $Query;
 	$DatabaseResult = mysql_query($Query) or die('Query failed: ' . mysql_error());
 

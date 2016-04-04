@@ -1,19 +1,46 @@
 <?php
-$route = '/curated/:curated_id/';
-$app->get($route, function ($curated_id)  use ($app){
-
-    $host = $_SERVER['HTTP_HOST'];
-    $curated_id = prepareIdIn($curated_id,$host);
+$route = '/curated/tags/:tag/stack/build/';
+$app->get($route, function ($tag)  use ($app){
 
 	$ReturnObject = array();
-		
-	$Query = "SELECT * FROM curated WHERE Curated_ID = '" . $curated_ID . "'";
-	//echo $Query . "<br />";
+
+ 	$request = $app->request();
+ 	$params = $request->params();
 	
+	if(isset($_REQUEST['override'])){ $override = $params['override']; } else { $override = 0; }
+	
+	// Get a list of company blog_rss
+	$Lane_System = "";
+	$First = 1;
+	$Query = "SELECT cu.Company_URL_ID FROM tags t";
+	$Query .= " JOIN company_tag_pivot ctp ON t.Tag_ID = ctp.Tag_ID";
+	$Query .= " JOIN company c ON ctp.Company_ID = c.Company_ID";
+	$Query .= " JOIN company_url cu ON c.Company_ID = cu.Company_ID";
+	$Query .= " WHERE t.Tag = '" . $tag . "'";
+	//echo $Query;
 	$DatabaseResult = mysql_query($Query) or die('Query failed: ' . mysql_error());
-	  
 	while ($Database = mysql_fetch_assoc($DatabaseResult))
 		{
+		if($First>1){ $Lane_System .= ','; }
+		$Lane_System .= chr(39) . 'company_blog_rss_' . $Database['Company_URL_ID'] . chr(39);
+		$First++;
+		}	
+	
+	$Lane_System = "(" . $Lane_System . ")";
+	//echo $Lane_System . "<br />";
+
+	$Query = "SELECT DISTINCT c.* from tags t";
+	$Query .= " JOIN curated_tag_pivot ctp ON t.Tag_ID = ctp.Tag_ID";
+	$Query .= " JOIN curated c ON ctp.Curated_ID = c.Curated_ID";
+	$Query .= " WHERE (Github_Build NOT LIKE '%" . $tag . "%' OR Github_Build IS NULL)";
+	$Query .= " AND Lane_System IN" . $Lane_System;
+	$Query .= " ORDER BY Curated_ID DESC";
+	//echo $Query;
+	$DatabaseResult = mysql_query($Query) or die('Query failed: ' . mysql_error());
+
+	while ($Database = mysql_fetch_assoc($DatabaseResult))
+		{
+
 		$curated_id = $Database['Curated_ID'];
 		$title = $Database['Title'];
 		$title = str_replace(chr(34),"",$title);
@@ -34,10 +61,10 @@ $app->get($route, function ($curated_id)  use ($app){
 		$Details = str_replace(chr(32).chr(32),chr(32),$Details);
 		$Details = str_replace(chr(32).chr(32),chr(32),$Details);
 		$Status = $Database['Status'];
-		$Public_Comment = $Database['Public_Comment'];	
+		$Public_Comment = $Database['Public_Comment'];
 		$Public_Comment = str_replace(chr(34),"",$Public_Comment);
-		$Public_Comment = str_replace(chr(39),"",$Public_Comment);		
-		$Author = $Database['Author'];		
+		$Public_Comment = str_replace(chr(39),"",$Public_Comment);
+		$Author = $Database['Author'];
 		$Domain = $Database['Domain'];
 		$Screenshot_URL = $Database['Screenshot_URL'];
 		$Resolved_URL = $Database['Resolved_URL'];
@@ -45,8 +72,13 @@ $app->get($route, function ($curated_id)  use ($app){
 		$Weekly_Roundup = $Database['Weekly_Roundup'];
 		$Processed = $Database['Processed'];
 		$Github_Build = $Database['Github_Build'];
-						
+
 		// manipulation zone
+
+		// manipulation zone
+		if($Github_Build==''){ $Github_Build = $tag; } else { $Github_Build .= $tag; }
+		$UpdateQuery = "UPDATE curated SET Github_Build = '" . $Github_Build . "' WHERE Curated_ID = " . $curated_id;
+		$UpdateResult = mysql_query($UpdateQuery) or die('Query failed: ' . mysql_error());		
 
 		$TagQuery = "SELECT t.tag_id, t.tag from tags t";
 		$TagQuery .= " INNER JOIN curated_tag_pivot ctp ON t.tag_id = ctp.tag_id";
@@ -55,7 +87,7 @@ $app->get($route, function ($curated_id)  use ($app){
 
 		$host = $_SERVER['HTTP_HOST'];
 		$curated_id = prepareIdOut($curated_id,$host);
-		
+
 		$F = array();
 		$F['curated_id'] = $curated_id;
 		$F['title'] = $title;
@@ -73,28 +105,29 @@ $app->get($route, function ($curated_id)  use ($app){
 		$F['weekly_roundup'] = $Weekly_Roundup;
 		$F['processed'] = $Processed;
 		$F['github_build'] = $Github_Build;
-		
+
 		$F['tags'] = array();
 
-		$TagResult = mysql_query($TagQuery) or die('Query failed: ' . mysql_error());		  
+		$TagResult = mysql_query($TagQuery) or die('Query failed: ' . mysql_error());
 		while ($Tag = mysql_fetch_assoc($TagResult))
 			{
 			$thistag = $Tag['tag'];
-			
+
 			$T = array();
 			$T = $thistag;
 			array_push($F['tags'], $T);
-			//echo $thistag . "<br />";	
+			//echo $thistag . "<br />";
 			if($thistag=='Archive')
 				{
-				$archive = 1;	
-				}					
-			}		
-		
+				$archive = 1;
+				}
+			}
+
 		array_push($ReturnObject, $F);
+
 		}
 
 		$app->response()->header("Content-Type", "application/json");
-		echo stripslashes(format_json(json_encode($ReturnObject)));
+		echo format_json(json_encode($ReturnObject));
 	});
 ?>
